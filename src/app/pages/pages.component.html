@@ -1,0 +1,66 @@
+<mat-toolbar>
+  <button
+    mat-icon-button
+    *ngIf="sidenav.mode === 'over'"
+    (click)="sidenav.toggle()"
+  >
+    <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+    <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav
+    class="mat-elevation-z8"
+    #sidenav="matSidenav"
+    mode="side"
+    opened
+  >
+    <img
+      class="avatar mat-elevation-z8"
+      src="../../assets/img/cnx.png"
+      alt=""
+    />
+
+    <mat-divider></mat-divider>
+
+	<!--Equipo-->
+   <mat-accordion>
+      <mat-expansion-panel class="menu-accordion mt-2">
+        <mat-expansion-panel-header>
+          <mat-panel-description>
+            <a class="menu-button-description">
+              <mat-icon aria-hidden="true" class="mat-icon-sm">person_add</mat-icon>
+              <span class="icon-text">Procesar</span>
+            </a>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <button mat-button class="menu-button">
+          
+            <span>Archivo</span>
+        </button>
+
+        <button mat-button class="menu-button">
+          
+            <span>Resultado</span>
+        </button>
+	 </mat-expansion-panel>
+    </mat-accordion>
+	 <!--Materiales-->
+	
+	<!--SALIR-->
+	<button mat-button class="menu-button mt-2">
+      <mat-icon>logout</mat-icon>
+      <span>Salir</span>
+    </button>
+    <mat-divider></mat-divider>
+ 
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
